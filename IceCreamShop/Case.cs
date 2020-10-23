@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace IceCreamShop
 {
@@ -31,6 +32,29 @@ namespace IceCreamShop
             Flavors.Add(flavor3);
             Flavors.Add(flavor4);
             Flavors.Add(flavor5);
-        } 
+        }
+        public override string ToString()
+        {
+            StringBuilder stringToBe = new StringBuilder();
+            stringToBe.Append("Flavors!!!");
+            foreach(Flavor flavor in Flavors)
+            {
+                stringToBe.Append($"\n{flavor.Name} : {flavor.Cost} : ");
+                foreach(string allergen in flavor.Allergens)
+                {
+                    stringToBe.Append($"{allergen}, ");
+                }
+            }
+            stringToBe.Append("\n\nCones!!!");
+            foreach(Cone cone in Cones)
+            {
+                stringToBe.Append($"\n{cone.Name} : {cone.Cost} : ");
+                foreach(string allergen in cone.Allergens)
+                {
+                    stringToBe.Append($"{allergen}, ");
+                }
+            }
+            return stringToBe.ToString();
+        }
     }
 }
